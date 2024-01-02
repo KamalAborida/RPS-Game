@@ -1,0 +1,23 @@
+.btn {
+  &-rules {
+    background-color: unset;
+    border: 1px solid $header-outline;
+    position: absolute;
+    right: -150px;
+    bottom: 0;
+    color: $header-outline;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  &-again {
+    background-color: white;
+    color: $dark-text;
+    padding: 0.8em;
+    border-radius: 10px;
+    outline: unset;
+    border: 0;
+    letter-spacing: 0.1em;
+  }
+}

@@ -1,0 +1,251 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+html {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+}
+
+body {
+  background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.GameContainer {
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 90%;
+}
+
+.GameHeader {
+  border: 2px solid hsl(217, 16%, 45%);
+  border-radius: 15px;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.ScoreBoard {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#F3F3F3, #FFFFFF);
+  padding: 1em 2em;
+  border-radius: 15px;
+  text-align: center;
+}
+.ScoreBoard__title {
+  color: hsl(229, 64%, 46%);
+  font-size: 1rem;
+}
+.ScoreBoard__score {
+  font-size: 4rem;
+  color: #979797;
+  font-weight: 700;
+}
+
+.GameActionDiv {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 70%;
+}
+.GameActionDiv__bg {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.GameActionDiv > .GameChoice:nth-child(2) {
+  position: absolute;
+  bottom: 5%;
+}
+
+.GameChoice {
+  margin: 10px 40px;
+  border-radius: 100%;
+  padding: 1.5em;
+  z-index: 10;
+}
+.GameChoice-empty {
+  background-color: rgba(0, 0, 0, 0.384);
+  width: 150px;
+  height: 150px;
+}
+.GameChoice__whites {
+  background-color: white;
+  border-radius: 100%;
+  padding: 2.5em;
+  box-shadow: inset 0 2px 1px 4px rgba(0, 0, 0, 0.132);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.GameChoice-rock {
+  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: 0 4px 1px 2px #9D1634;
+}
+.GameChoice-paper {
+  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  box-shadow: 0 4px 1px 2px #2A45C2;
+}
+.GameChoice-scissors {
+  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: 0 4px 1px 2px #C76C1B;
+}
+
+.PickedDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 150px auto 40px auto;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+}
+
+.GameVsDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+}
+.GameVsDiv .GameChoice {
+  margin: 0;
+}
+.GameVsDiv .GameChoice-empty {
+  margin-right: 20px;
+}
+
+.PickedDiv, .GameVsDiv {
+  width: 65%;
+}
+
+.btn-rules {
+  background-color: unset;
+  border: 1px solid hsl(217, 16%, 45%);
+  position: absolute;
+  right: -150px;
+  bottom: 0;
+  color: hsl(217, 16%, 45%);
+  padding: 0.5em 2em;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.btn-again {
+  background-color: white;
+  color: hsl(229, 25%, 31%);
+  padding: 0.8em;
+  border-radius: 10px;
+  outline: unset;
+  border: 0;
+  letter-spacing: 0.1em;
+}
+
+.ResultDiv {
+  text-align: center;
+}
+.ResultDiv__result {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+}
+.ResultDiv .btn {
+  font-size: 0.4;
+  width: 100%;
+}
+
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.473);
+  z-index: 20;
+}
+
+.RulesModal {
+  background-color: white;
+  z-index: 21;
+  width: 30%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  padding: 2em;
+  border-radius: 15px;
+}
+
+.RulesModalHeader {
+  z-index: 21;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.RulesModalHeader__title {
+  font-size: 2rem;
+  color: hsl(229, 25%, 31%);
+  font-weight: 700;
+}

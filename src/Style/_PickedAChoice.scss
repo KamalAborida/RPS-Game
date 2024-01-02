@@ -1,0 +1,34 @@
+.PickedDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // border: 2px solid red;
+  margin: 150px auto 40px auto;
+  color: white;
+  font-weight: $font-weight-700;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+}
+
+.GameVsDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // border: 2px solid red;
+  margin: 30px auto;
+
+  .GameChoice {
+    margin: 0;
+    // max-height: 200px;
+    // max-width: 30%;
+
+    &-empty {
+      margin-right: 20px;
+    }
+  }
+}
+
+.PickedDiv, .GameVsDiv {
+  width: 65%;
+  // margin: auto;
+}

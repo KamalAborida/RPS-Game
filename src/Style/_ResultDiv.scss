@@ -1,0 +1,17 @@
+.ResultDiv {
+  // border: 2px solid red;
+  // height: 50%;
+  text-align: center;
+
+  &__result {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 3rem;
+    font-weight: $font-weight-700;
+  }
+
+  .btn {
+    font-size: 0.4;
+    width: 100%;
+  }
+}
