@@ -7,27 +7,40 @@ function GameVsDiv() {
   const ctx = useContext(ScoreContext);
   const [showResult, setShowResult] = useState(false);
   const [housePick, setHousePick] = useState(false);
+  const [showActualResultTime, setShowActualResultTime] = useState(false);
 
   const housePickHandler = useCallback(() => {
     const choices = ["rock", "paper", "scissors"];
     const randomIndex = Math.floor(Math.random() * choices.length);
     const randomChoice = choices[randomIndex];
 
-    ctx.housePick = randomChoice;
     setHousePick(randomChoice);
-  }, [ctx]);
+  }, []);
 
   useEffect(() => {
-    housePickHandler();
-    setShowResult(true)
-  }, [ctx, housePickHandler]);
+    const timeoutId = setTimeout(() => {
+      setShowResult(true);
+      housePickHandler();
+    }, 1500);
+
+    const timeoutId2 = setTimeout(() => {
+      setShowActualResultTime(true);
+    }, 2500);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearTimeout(timeoutId2);
+    };
+  }, [housePickHandler]);
 
   return (
     <div className="GameVsDiv">
       <GameChoice type={ctx.userPick} />
       {showResult && (
         <>
-          <ResultDiv />
+          {showActualResultTime && (
+            <ResultDiv userChoice={ctx.userPick} houseChoice={housePick} />
+          )}
           <GameChoice type={housePick} />
         </>
       )}

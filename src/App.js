@@ -6,26 +6,37 @@ import GameVsDiv from "./Components/User Picked/GameVsDiv";
 import React from "react-dom";
 import RulesModal, { BackDrop } from "./Components/Game Rules Modal/RulesModal";
 import ScoreContext from "./Context/Score-Context";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 function App() {
   const ctx = useContext(ScoreContext);
   const [showRules, setShowRules] = useState(false);
-  const [userPicked, setUserPicked] = useState(false);
+  const [userPick, setUserPick] = useState("");
+  // const [score, setScore] = useState(0);
+  const [isGameActive, setIsGameActive] = useState(false);
 
-  // console.log(ctx);
+  let userPicked = userPick === "" ? false : true;
 
-  useEffect(() => {
-    console.log("ctx changed");
-    if (ctx.userPick !== "") {
-      setUserPicked(true);
-    } else {
-      setUserPicked(false);
-    }
-  }, [ctx.userPick]);
-
-  const toggleRulesHandler = () => {
+  ctx.toggleRulesHandler = () => {
     setShowRules((prev) => !prev);
+  };
+
+  // ctx.addScore = () => {
+  //   if (!isGameActive) {
+  //     return;
+  //   }
+  //   setScore(5);
+  //   setIsGameActive(false)
+  // };
+
+  ctx.playAgainHandler = () => {
+    setIsGameActive(false);
+    setUserPick("");
+  };
+
+  ctx.userPickHandler = (choice) => {
+    setIsGameActive(true);
+    setUserPick(choice);
   };
 
   return (
@@ -35,7 +46,7 @@ function App() {
         {!userPicked && <GameActionDiv />}
         {userPicked && <PickedDiv />}
         {userPicked && <GameVsDiv />}
-        <button className="btn btn-rules" onClick={toggleRulesHandler}>
+        <button className="btn btn-rules" onClick={ctx.toggleRulesHandler}>
           RULES
         </button>
         {showRules &&

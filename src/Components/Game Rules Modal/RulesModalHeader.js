@@ -1,8 +1,19 @@
+import { useContext } from "react";
+import ScoreContext from "../../Context/Score-Context";
+
 function RulesModalHeader() {
+  const ctx = useContext(ScoreContext);
+
   return (
     <div className="RulesModalHeader">
       <h1 className="RulesModalHeader__title">RULES</h1>
-      <svg className="RulesModalHeader__close" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+      <svg
+        onClick={ctx.toggleRulesHandler}
+        className="RulesModalHeader__close"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+      >
         <path
           fill="#3B4262"
           fill-rule="evenodd"

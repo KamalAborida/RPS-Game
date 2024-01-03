@@ -2,17 +2,12 @@ import { useContext, useState } from "react";
 import ScoreContext from "../../Context/Score-Context";
 
 function ScoreBoard() {
-  const [score, setScore] = useState(0);
-  const ctx = useContext(ScoreContext)
-
-  ctx.addScore = () => {
-    setScore((prev) => prev + 1);
-  }
+  const ctx = useContext(ScoreContext);
 
   return (
     <div className="ScoreBoard">
       <p className="ScoreBoard__title">Score</p>
-      <p className="ScoreBoard__score">{score}</p>
+      <p className="ScoreBoard__score">{ctx.score}</p>
     </div>
   );
 }
