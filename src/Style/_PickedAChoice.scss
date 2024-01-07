@@ -28,7 +28,24 @@
   }
 }
 
-.PickedDiv, .GameVsDiv {
-  width: 65%;
+.PickedDiv,
+.GameVsDiv {
+  width: 80%;
   // margin: auto;
+}
+
+@media screen and (max-width: $tablet-breakPoint) {
+  .PickedDiv,
+  .GameVsDiv {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $mobile-breakPoint) {
+  .PickedDiv {
+    // border: 2px solid red;
+    margin: 100px auto 20px auto;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
 }

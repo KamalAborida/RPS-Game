@@ -8,10 +8,6 @@
   margin-bottom: 50px;
 }
 
-.GameName {
-
-}
-
 .ScoreBoard {
   display: flex;
   flex-direction: column;
@@ -29,5 +25,29 @@
     font-size: 4rem;
     color: $score-board-text;
     font-weight: $font-weight-700;
+  }
+}
+
+@media screen and (max-width: $mobile-breakPoint) {
+  .GameHeader {
+    padding: 1em 2em;
+    margin-bottom: 50px;
+  }
+
+  .GameName {
+    img {
+      width: 60%;
+    }
+  }
+
+  .ScoreBoard {
+
+    &__title {
+      margin-bottom: 10px;
+    }
+
+    &__score {
+      font-size: 2rem;
+    }
   }
 }

@@ -6,14 +6,14 @@ import GameVsDiv from "./Components/User Picked/GameVsDiv";
 import React from "react-dom";
 import RulesModal, { BackDrop } from "./Components/Game Rules Modal/RulesModal";
 import ScoreContext from "./Context/Score-Context";
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const ctx = useContext(ScoreContext);
   const [showRules, setShowRules] = useState(false);
   const [userPick, setUserPick] = useState("");
-  // const [score, setScore] = useState(0);
-  const [isGameActive, setIsGameActive] = useState(false);
+  const [score, setScore] = useState(0);
 
   let userPicked = userPick === "" ? false : true;
 
@@ -21,23 +21,23 @@ function App() {
     setShowRules((prev) => !prev);
   };
 
-  // ctx.addScore = () => {
-  //   if (!isGameActive) {
-  //     return;
-  //   }
-  //   setScore(5);
-  //   setIsGameActive(false)
-  // };
+  ctx.addScore = useCallback(() => {
+    setScore((prev) => {
+      console.log("prev", prev);
+      ctx.score = prev + 1;
+      return prev + 1;
+    });
+  }, [ctx]);
 
   ctx.playAgainHandler = () => {
-    setIsGameActive(false);
     setUserPick("");
   };
 
   ctx.userPickHandler = (choice) => {
-    setIsGameActive(true);
     setUserPick(choice);
   };
+
+  // ctx.addScore()
 
   return (
     <div className="App">

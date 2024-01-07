@@ -58,6 +58,7 @@ body {
   background-size: cover;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 .GameContainer {
@@ -69,6 +70,16 @@ body {
   height: 90%;
 }
 
+@media screen and (max-width: 1024px) {
+  .GameContainer {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .GameContainer {
+    width: 90%;
+  }
+}
 .GameHeader {
   border: 2px solid hsl(217, 16%, 45%);
   border-radius: 15px;
@@ -97,6 +108,21 @@ body {
   font-weight: 700;
 }
 
+@media screen and (max-width: 500px) {
+  .GameHeader {
+    padding: 1em 2em;
+    margin-bottom: 50px;
+  }
+  .GameName img {
+    width: 60%;
+  }
+  .ScoreBoard__title {
+    margin-bottom: 10px;
+  }
+  .ScoreBoard__score {
+    font-size: 2rem;
+  }
+}
 .GameActionDiv {
   position: relative;
   display: flex;
@@ -110,6 +136,8 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  height: 80%;
+  width: 400px;
 }
 .GameActionDiv > .GameChoice:nth-child(2) {
   position: absolute;
@@ -121,6 +149,9 @@ body {
   border-radius: 100%;
   padding: 1.5em;
   z-index: 10;
+}
+.GameChoice:hover {
+  cursor: pointer;
 }
 .GameChoice-empty {
   background-color: rgba(0, 0, 0, 0.384);
@@ -149,6 +180,30 @@ body {
   box-shadow: 0 4px 1px 2px #C76C1B;
 }
 
+@media screen and (max-width: 1024px) {
+  .GameActionDiv {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .GameActionDiv {
+    height: 50%;
+  }
+  .GameActionDiv__bg {
+    width: 80%;
+  }
+  .GameChoice {
+    margin: 10px 40px;
+    padding: 0.7em;
+  }
+  .GameChoice-empty {
+    width: 120px;
+    height: 120px;
+  }
+  .GameChoice__whites {
+    padding: 1.5em;
+  }
+}
 .PickedDiv {
   display: flex;
   justify-content: space-between;
@@ -173,20 +228,38 @@ body {
   margin-right: 20px;
 }
 
-.PickedDiv, .GameVsDiv {
-  width: 65%;
+.PickedDiv,
+.GameVsDiv {
+  width: 80%;
 }
 
+@media screen and (max-width: 1024px) {
+  .PickedDiv,
+  .GameVsDiv {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .PickedDiv {
+    margin: 100px auto 20px auto;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+}
 .btn-rules {
   background-color: unset;
   border: 1px solid hsl(217, 16%, 45%);
   position: absolute;
-  right: -150px;
+  right: 0;
   bottom: 0;
   color: hsl(217, 16%, 45%);
   padding: 0.5em 2em;
   border-radius: 5px;
   font-size: 1rem;
+}
+.btn-rules:hover {
+  cursor: pointer;
+  background-color: white;
 }
 .btn-again {
   background-color: white;
@@ -197,7 +270,24 @@ body {
   border: 0;
   letter-spacing: 0.1em;
 }
+.btn-again:hover {
+  cursor: pointer;
+  color: red;
+}
 
+@media screen and (max-width: 1024px) {
+  .btn-rules {
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .btn-rules {
+    left: 50%;
+    bottom: 0;
+    right: unset;
+    transform: translate(-50%, 50%);
+  }
+}
 .ResultDiv {
   text-align: center;
 }
@@ -208,10 +298,26 @@ body {
   font-weight: 700;
 }
 .ResultDiv .btn {
-  font-size: 0.4;
+  font-size: 1rem;
   width: 100%;
 }
 
+@media screen and (max-width: 1024px) {
+  .ResultDiv__result {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .ResultDiv {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+  }
+  .ResultDiv__result {
+    font-size: 1.5rem;
+  }
+}
 .backdrop {
   position: absolute;
   width: 100%;
@@ -248,4 +354,31 @@ body {
   font-size: 2rem;
   color: hsl(229, 25%, 31%);
   font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .RulesModal {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .RulesModal {
+    width: 100%;
+    height: 100%;
+  }
+  .RulesModalHeader {
+    width: 100%;
+    margin-bottom: 50%;
+  }
+  .RulesModalHeader__title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .RulesModalHeader svg {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+  }
 }

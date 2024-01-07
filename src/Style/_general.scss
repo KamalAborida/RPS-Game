@@ -8,7 +8,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100vh
+  height: 100vh;
+  overflow: hidden;
 }
 
 .GameContainer {
@@ -22,4 +23,18 @@ body {
   // justify-content: space-between;
   height: 90%;
   // border: 1px solid green;
+}
+
+@media screen and (max-width: $tablet-breakPoint) {
+  .GameContainer {
+    width: 80%;
+    // border: 2px solid red;
+  }
+}
+
+@media screen and (max-width: $mobile-breakPoint) {
+  .GameContainer {
+    width: 90%;
+    // border: 2px solid red;
+  }
 }

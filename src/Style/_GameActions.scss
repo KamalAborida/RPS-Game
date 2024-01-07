@@ -12,6 +12,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    height: 80%;
+    width: 400px;
   }
 
   & > .GameChoice:nth-child(2) {
@@ -25,6 +27,10 @@
   border-radius: 100%;
   padding: 1.5em;
   z-index: 10;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   &-empty {
     background-color: rgba(0, 0, 0, 0.384);
@@ -53,7 +59,41 @@
   }
 
   &-scissors {
-    background: linear-gradient($scissors-gradient-start, $scissors-gradient-end);
+    background: linear-gradient(
+      $scissors-gradient-start,
+      $scissors-gradient-end
+    );
     box-shadow: 0 4px 1px 2px $scissors-shadow;
+  }
+}
+
+@media screen and (max-width: $tablet-breakPoint) {
+  .GameActionDiv {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: $mobile-breakPoint) {
+  .GameActionDiv {
+    // border: 2px solid black;
+    height: 50%;
+
+    &__bg {
+      width: 80%;
+    }
+  }
+
+  .GameChoice {
+    margin: 10px 40px;
+    padding: 0.7em;
+  
+    &-empty {
+      width: 120px;
+      height: 120px;
+    }
+  
+    &__whites {
+      padding: 1.5em;
+    }
   }
 }

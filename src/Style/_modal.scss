@@ -36,3 +36,35 @@
     font-weight: $font-weight-700;
   }
 }
+
+@media screen and (max-width: $tablet-breakPoint) {
+  .RulesModal {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: $mobile-breakPoint) {
+  .RulesModal {
+    width: 100%;
+    height: 100%;
+  }
+
+  .RulesModalHeader {
+    width: 100%;
+    margin-bottom: 50%;
+    // border: 2px solid red;
+
+    &__title {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    svg {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+    }
+  }
+}

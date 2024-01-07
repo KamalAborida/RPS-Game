@@ -1,11 +1,10 @@
-// import GameChoice from "./GameChoice";
-
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ScoreContext from "../../Context/Score-Context";
 
 function ResultDiv(props) {
   const ctx = useContext(ScoreContext);
   let result = "";
+  let justOneTime = false;    // I use that to only call addScore() once
 
   if (props.userChoice === "rock") {
     switch (props.houseChoice) {
@@ -14,15 +13,16 @@ function ResultDiv(props) {
         break;
       case "scissors":
         result = "WIN";
+        justOneTime = true;
         break;
       default:
         result = "DRAW";
     }
   } else if (props.userChoice === "paper") {
-    // Logic for userChoice being "paper"
     switch (props.houseChoice) {
       case "rock":
         result = "WIN";
+        justOneTime = true;
         break;
       case "scissors":
         result = "LOSE";
@@ -31,22 +31,29 @@ function ResultDiv(props) {
         result = "DRAW";
     }
   } else if (props.userChoice === "scissors") {
-    // Logic for userChoice being "scissors"
     switch (props.houseChoice) {
       case "rock":
         result = "LOSE";
         break;
       case "paper":
         result = "WIN";
+        justOneTime = true;
         break;
       default:
         result = "DRAW";
     }
   }
 
-  if (result === "WIN") {
-    ctx.addScore();
-  }
+  console.log(result);
+
+  // Error
+  useEffect(() => {
+    if (result === "WIN" && justOneTime) {
+      ctx.addScore();
+    }
+    justOneTime = false;
+  }, [result, ctx]);
+  // Error
 
   return (
     <div className="ResultDiv">
