@@ -2,6 +2,7 @@ import GameChoice from "./GameChoice";
 import tri_bg from "../../Assets/images/bg-triangle.svg";
 import { useContext } from "react";
 import ScoreContext from "../../Context/Score-Context";
+import { motion } from "framer-motion";
 
 function GameActionDiv() {
   const ctx = useContext(ScoreContext);
@@ -12,12 +13,12 @@ function GameActionDiv() {
   };
 
   return (
-    <div className="GameActionDiv">
+    <motion.div animate={{x: [-300, 0], opacity: [0, 1]}} transition={{type:"spring"}} className="GameActionDiv">
       <img className="GameActionDiv__bg" src={tri_bg} alt={"tri"} />
       <GameChoice type="rock" pickHandler={pickHandler} id="rock" />
       <GameChoice type="paper" pickHandler={pickHandler} id="paper" />
       <GameChoice type="scissors" pickHandler={pickHandler} id="scissors" />
-    </div>
+    </motion.div>
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import GameChoice from "../Game Action Div/GameChoice";
 import ResultDiv from "../Game Result Div/ResultDiv";
 import ScoreContext from "../../Context/Score-Context";
+import { motion } from "framer-motion";
 
 function GameVsDiv() {
   const ctx = useContext(ScoreContext);

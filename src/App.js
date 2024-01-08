@@ -7,7 +7,7 @@ import React from "react-dom";
 import RulesModal, { BackDrop } from "./Components/Game Rules Modal/RulesModal";
 import ScoreContext from "./Context/Score-Context";
 import { useCallback, useContext, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
   const ctx = useContext(ScoreContext);
@@ -46,13 +46,16 @@ function App() {
         {!userPicked && <GameActionDiv />}
         {userPicked && <PickedDiv />}
         {userPicked && <GameVsDiv />}
-        <button className="btn btn-rules" onClick={ctx.toggleRulesHandler}>
+        <motion.button
+          animate={{ y: [300, 0], opacity: [0, 1], x: null }}
+          transition={{ type: "keyframes" }}
+          className="btn btn-rules"
+          onClick={ctx.toggleRulesHandler}
+        >
           RULES
-        </button>
-        {showRules &&
-          React.createPortal(<BackDrop />, document.getElementById("backdrop"))}
-        {showRules &&
-          React.createPortal(<RulesModal />, document.getElementById("modal"))}
+        </motion.button>
+        <AnimatePresence>{showRules && <BackDrop />}</AnimatePresence>
+        <AnimatePresence>{showRules && <RulesModal />}</AnimatePresence>
       </div>
     </div>
   );
