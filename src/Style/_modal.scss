@@ -35,6 +35,12 @@
     color: $dark-text;
     font-weight: $font-weight-700;
   }
+
+  svg {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 @media screen and (max-width: $tablet-breakPoint) {

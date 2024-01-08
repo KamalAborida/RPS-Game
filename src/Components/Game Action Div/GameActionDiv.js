@@ -15,9 +15,9 @@ function GameActionDiv() {
   return (
     <motion.div animate={{x: [-300, 0], opacity: [0, 1]}} transition={{type:"spring"}} className="GameActionDiv">
       <img className="GameActionDiv__bg" src={tri_bg} alt={"tri"} />
-      <GameChoice type="rock" pickHandler={pickHandler} id="rock" />
-      <GameChoice type="paper" pickHandler={pickHandler} id="paper" />
-      <GameChoice type="scissors" pickHandler={pickHandler} id="scissors" />
+      <GameChoice location="start" type="rock" pickHandler={pickHandler} id="rock" />
+      <GameChoice location="start" type="paper" pickHandler={pickHandler} id="paper" />
+      <GameChoice location="start" type="scissors" pickHandler={pickHandler} id="scissors" />
     </motion.div>
   );
 }

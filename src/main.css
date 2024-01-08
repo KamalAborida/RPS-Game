@@ -150,9 +150,6 @@ body {
   padding: 1.5em;
   z-index: 10;
 }
-.GameChoice:hover {
-  cursor: pointer;
-}
 .GameChoice-empty {
   background-color: rgba(0, 0, 0, 0.384);
   width: 150px;
@@ -311,7 +308,7 @@ body {
   .ResultDiv {
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 5%;
     transform: translate(-50%, -50%);
   }
   .ResultDiv__result {
@@ -354,6 +351,9 @@ body {
   font-size: 2rem;
   color: hsl(229, 25%, 31%);
   font-weight: 700;
+}
+.RulesModalHeader svg:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
