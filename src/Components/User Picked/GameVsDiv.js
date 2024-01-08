@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import GameChoice from "../Game Action Div/GameChoice";
 import ResultDiv from "../Game Result Div/ResultDiv";
 import ScoreContext from "../../Context/Score-Context";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 function GameVsDiv() {
   const ctx = useContext(ScoreContext);
@@ -35,18 +35,15 @@ function GameVsDiv() {
   }, [housePickHandler]);
 
   return (
-    <div className="GameVsDiv">
+    <motion.div animate={{x: [300, 0], opacity: [0, 1]}} transition={{type: "tween"}} className="GameVsDiv">
       <GameChoice type={ctx.userPick} />
-      {showResult && (
-        <>
-          {showActualResultTime && (
-            <ResultDiv userChoice={ctx.userPick} houseChoice={housePick} />
-          )}
-          <GameChoice type={housePick} />
-        </>
+      {showResult && showActualResultTime && (
+        <ResultDiv userChoice={ctx.userPick} houseChoice={housePick} />
       )}
-      {!showResult && <GameChoice type={"empty"} />}
-    </div>
+      <motion.div animate={{ opacity: [0, 1] }}>
+        <GameChoice type={!showResult ? "empty" : housePick} />
+      </motion.div>
+    </motion.div>
   );
 }
 

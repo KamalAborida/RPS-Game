@@ -44,8 +44,8 @@ function App() {
       <div className="GameContainer">
         <GameHeader />
         {!userPicked && <GameActionDiv />}
-        {userPicked && <PickedDiv />}
-        {userPicked && <GameVsDiv />}
+        <AnimatePresence>{userPicked && <PickedDiv />}</AnimatePresence>
+        <AnimatePresence>{userPicked && <GameVsDiv />}</AnimatePresence>
         <motion.button
           animate={{ y: [300, 0], opacity: [0, 1], x: null }}
           transition={{ type: "keyframes" }}

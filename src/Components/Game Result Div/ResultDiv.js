@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import ScoreContext from "../../Context/Score-Context";
+import { motion } from "framer-motion";
 
 function ResultDiv(props) {
   const ctx = useContext(ScoreContext);
@@ -56,12 +57,12 @@ function ResultDiv(props) {
   // Error
 
   return (
-    <div className="ResultDiv">
+    <motion.div animate={{opacity: [0, 1]}} transition={{type: "keyframes"}} className="ResultDiv">
       <p className="ResultDiv__result">YOU {result}</p>
       <button className="btn btn-again" onClick={ctx.playAgainHandler}>
         PLAY AGAIN
       </button>
-    </div>
+    </motion.div>
   );
 }
 
